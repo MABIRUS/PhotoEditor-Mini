@@ -1,0 +1,49 @@
+﻿<Window x:Class="PhotoEditor_Mini.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PhotoEditor_Mini"
+        mc:Ignorable="d"
+        Title="PhotoEditor Mini" Height="640" Width="860">
+    
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*"/>
+            <ColumnDefinition Width="0.25*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".95*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+
+            <Rectangle Grid.Row="0" Fill="LightGray" Panel.ZIndex="-1" Margin="20"/>
+            <ScrollViewer Margin="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0">
+                <Viewbox>
+                    <Image x:Name="cnvsImage">
+                        <Image.LayoutTransform>
+                            <ScaleTransform ScaleX="{Binding ElementName=sliderScale, Path=Value}"
+                                            ScaleY="{Binding ElementName=sliderScale, Path=Value}"/>
+                        </Image.LayoutTransform>
+                    </Image>
+                </Viewbox>
+            </ScrollViewer>
+            <StackPanel Height="20" Grid.Row="1" Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                <TextBlock Text="  Масштаб: " Foreground="White"/>
+                <Slider x:Name="sliderScale" Width="200" Height="20" Grid.Row="1"
+                    Minimum="0.1" Maximum="2" Value="0.1" TickFrequency="0.1"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Column="1" >
+            <Button x:Name="btnInput" Width="100" Height="50" Margin="10"  
+                Content="Input Image" FontSize="16"
+                Click="btnInput_Click"/>
+            <Button x:Name="btnDel" Width="100" Height="50" Margin="10"  
+                Content="Delete Image" FontSize="16"
+                Click="btnDel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
