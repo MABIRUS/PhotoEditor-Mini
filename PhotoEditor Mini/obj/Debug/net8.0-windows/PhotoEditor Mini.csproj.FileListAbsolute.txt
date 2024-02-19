@@ -18,3 +18,4 @@ C:\Users\MABIRUS\Desktop\C#\PhotoEditor Mini\PhotoEditor Mini\obj\Debug\net8.0-w
 C:\Users\MABIRUS\Desktop\C#\PhotoEditor Mini\PhotoEditor Mini\obj\Debug\net8.0-windows\PhotoEditor Mini.pdb
 C:\Users\MABIRUS\Desktop\C#\PhotoEditor Mini\PhotoEditor Mini\obj\Debug\net8.0-windows\PhotoEditor Mini.genruntimeconfig.cache
 C:\Users\MABIRUS\Desktop\C#\PhotoEditor Mini\PhotoEditor Mini\obj\Debug\net8.0-windows\ref\PhotoEditor Mini.dll
+C:\Users\MABIRUS\Desktop\C#\PhotoEditor Mini\PhotoEditor Mini\obj\Debug\net8.0-windows\PhotoEditor Mini.sourcelink.json

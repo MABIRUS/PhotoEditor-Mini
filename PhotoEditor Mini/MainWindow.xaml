@@ -32,7 +32,7 @@
                 </Viewbox>
             </ScrollViewer>
             <StackPanel Height="20" Grid.Row="1" Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Left">
-                <TextBlock Text="  Масштаб: " Foreground="White"/>
+                <TextBlock Text="  Scale: " Foreground="White"/>
                 <Slider x:Name="sliderScale" Width="200" Height="20" Grid.Row="1"
                     Minimum="0.1" Maximum="2" Value="0.1" TickFrequency="0.1"/>
             </StackPanel>
@@ -41,9 +41,18 @@
             <Button x:Name="btnInput" Width="100" Height="50" Margin="10"  
                 Content="Input Image" FontSize="16"
                 Click="btnInput_Click"/>
-            <Button x:Name="btnDel" Width="100" Height="50" Margin="10"  
-                Content="Delete Image" FontSize="16"
-                Click="btnDel_Click"/>
+            <Button x:Name="btnSave" Width="100" Height="50" Margin="10"  
+                Content="Save Image" FontSize="16"
+                Click="btnSave_Click"/>
+            <Button x:Name="btnClear" Width="100" Height="50" Margin="10"  
+                Click="btnClear_Click">
+                <TextBlock Text="Clear the canvas" TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
+            </Button>
+            <Button x:Name="btnRotate" Width="100" Height="50" Margin="10"  
+                Click="btnRotate_Click">
+                <TextBlock Text="Rotate the image" FontSize="16" TextWrapping="Wrap" TextAlignment="Center" />
+            </Button>
+            
         </StackPanel>
     </Grid>
 </Window>
