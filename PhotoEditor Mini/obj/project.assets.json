@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {}
+    "net8.0-windows7.0": {
+      "WPF.ImageEffects/1.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/WPF.ImageEffects.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/WPF.ImageEffects.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ],
+        "contentFiles": {
+          "contentFiles/any/net5.0-windows7.0/Shaders/ImageShader.fx": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "WPF.ImageEffects/1.5.0": {
+      "sha512": "9hIh57QHUMWkr6x131IurxrT7BGAc2DIb9naVhIpBK6hpGZS+WCif7L1NMp8rRUFRx+X9q3LGagLgtEYVsmF9A==",
+      "type": "package",
+      "path": "wpf.imageeffects/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Shaders/ImageShader.fx",
+        "contentFiles/any/net5.0-windows7.0/Shaders/ImageShader.fx",
+        "lib/net5.0-windows7.0/WPF.ImageEffects.dll",
+        "usercode.png",
+        "wpf.imageeffects.1.5.0.nupkg.sha512",
+        "wpf.imageeffects.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": []
+    "net8.0-windows7.0": [
+      "WPF.ImageEffects >= 1.5.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\MABIRUS\\.nuget\\packages\\": {},
@@ -50,6 +88,12 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "WPF.ImageEffects": {
+            "target": "Package",
+            "version": "[1.5.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

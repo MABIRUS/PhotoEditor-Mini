@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6ZqwomPLemVRzoZl8AtxLUb+RPjGz1LwrS97uPaSJj0gBNDxD8y1zSz1I7S/EraQCMbSAYO9Vfd/UdMnvhc0KA==",
+  "dgSpecHash": "7UP3Q5EnXtLePkMzpsjPst5RjBkTxhuB4uPZoDb8yJY92sQphPig3gZelKPmqD2ObwgSXvsdR0ODWACdkEktBQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\MABIRUS\\Desktop\\C#\\PhotoEditor Mini\\PhotoEditor Mini\\PhotoEditor Mini.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\MABIRUS\\.nuget\\packages\\wpf.imageeffects\\1.5.0\\wpf.imageeffects.1.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

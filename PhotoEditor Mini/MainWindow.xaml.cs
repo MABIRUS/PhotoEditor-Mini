@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
@@ -25,6 +26,14 @@ namespace PhotoEditor_Mini
                 Uri path = new Uri(ofd.FileName);
                 cnvsImage.Source = new BitmapImage(path);
             }
+
+            sliderR.Value = 0;
+            sliderG.Value = 0;
+            sliderB.Value = 0;
+
+            sliderBrightness.Value = 0;
+            sliderContrast.Value = 0;
+
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e) => cnvsImage.Source = null;
@@ -75,9 +84,13 @@ namespace PhotoEditor_Mini
         {
             if (cnvsImage.Source != null)
             {
+                Button? btn = sender as Button;
+
+                int angle = btn.Name == "btnRotateRight" ? -90: 90;
+
                 BitmapSource source = (BitmapSource)cnvsImage.Source;
 
-                RotateTransform rotateTransform = new RotateTransform(90);
+                RotateTransform rotateTransform = new RotateTransform(angle);
 
                 TransformedBitmap rotatedBitmap = new TransformedBitmap(source, rotateTransform);
 
@@ -88,6 +101,7 @@ namespace PhotoEditor_Mini
                 MessageBox.Show("There is no image to rotate.", "ERROR!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
     }
 }
