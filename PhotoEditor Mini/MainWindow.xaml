@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PhotoEditor_Mini"
+        xmlns:imageeffects="clr-namespace:WPF.ImageEffects;assembly=WPF.ImageEffects"
         mc:Ignorable="d"
         Title="PhotoEditor Mini" Height="640" Width="860">
     
@@ -19,24 +20,41 @@
                 <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
 
-
             <Rectangle Grid.Row="0" Fill="LightGray" Panel.ZIndex="-1" Margin="20"/>
             <ScrollViewer Margin="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="0">
                 <Viewbox>
-                    <Image x:Name="cnvsImage">
+                    <Image x:Name="cnvsImage" >
                         <Image.LayoutTransform>
                             <ScaleTransform ScaleX="{Binding ElementName=sliderScale, Path=Value}"
                                             ScaleY="{Binding ElementName=sliderScale, Path=Value}"/>
                         </Image.LayoutTransform>
+                        <Image.Effect>
+                            <imageeffects:BrightnessContrastEffect 
+                                Brightness="{Binding Value, ElementName=sliderBrightness}" 
+                                Contrast="{Binding Value, ElementName=sliderContrast}" />
+                        </Image.Effect>
                     </Image>
                 </Viewbox>
             </ScrollViewer>
+            
+            
             <StackPanel Height="20" Grid.Row="1" Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Left">
-                <TextBlock Text="  Scale: " Foreground="White"/>
+                <TextBlock Text="  Scale: " Foreground="White" FontSize="15"/>
                 <Slider x:Name="sliderScale" Width="200" Height="20" Grid.Row="1"
                     Minimum="0.1" Maximum="2" Value="0.1" TickFrequency="0.1"/>
+                
+            </StackPanel>
+
+            <StackPanel Height="20" Grid.Row="1" Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock Text="Rotate: " Foreground="White" FontSize="15"/>
+                <Button x:Name="btnRotateRight" Width="20" Height="20" 
+                    Content="↻"  Click="btnRotate_Click"/>
+                <Button x:Name="btnRotateLeft" Width="20" Height="20" 
+                    Content="↺"  Click="btnRotate_Click"/>
             </StackPanel>
         </Grid>
+        
+        
         <StackPanel Grid.Column="1" >
             <Button x:Name="btnInput" Width="100" Height="50" Margin="10"  
                 Content="Input Image" FontSize="16"
@@ -48,11 +66,49 @@
                 Click="btnClear_Click">
                 <TextBlock Text="Clear the canvas" TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
             </Button>
-            <Button x:Name="btnRotate" Width="100" Height="50" Margin="10"  
-                Click="btnRotate_Click">
-                <TextBlock Text="Rotate the image" FontSize="16" TextWrapping="Wrap" TextAlignment="Center" />
-            </Button>
             
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".1*"/>
+                    <ColumnDefinition Width=".9*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                
+                <TextBlock Grid.Row="0" Grid.Column="0"
+                    Text="R" FontSize="16" Foreground="Red" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Slider x:Name="sliderR" Grid.Row="0" Grid.Column="1"
+                        Minimum="0" Maximum="255" Value="0" 
+                        />
+                <TextBlock Grid.Row="1" Grid.Column="0"
+                    Text="G" FontSize="16" Foreground="LightGreen"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Slider x:Name="sliderG" Grid.Row="1" Grid.Column="1"
+                        Minimum="0" Maximum="255" Value="0"
+                        />
+                <TextBlock Grid.Row="2" Grid.Column="0"
+                    Text="B" FontSize="16" Foreground="Blue"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Slider x:Name="sliderB" Grid.Row="2" Grid.Column="1"
+                        Minimum="0" Maximum="255" Value="0"
+                        />
+            </Grid>
+            <TextBlock
+                Text="Brightness" FontSize="16" Foreground="White"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Slider x:Name="sliderBrightness"
+                Minimum="-1" Maximum="1" Value="0"/>
+            <TextBlock
+                Text="Contrast" FontSize="16" Foreground="White"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>   
+            <Slider x:Name="sliderContrast"
+                Minimum="-1" Maximum="1" Value="0"/>
         </StackPanel>
+        
     </Grid>
 </Window>
